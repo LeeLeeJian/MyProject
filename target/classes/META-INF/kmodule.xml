@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://www.drools.org/xsd/kmodule">
+    <kbase name="Automation" default="true">
+    	<ksession name="RuleAutomation.drl" />
+    </kbase>
+    <kbase name="MA" default="true">
+    	<ksession name="RuleMA.drl"></ksession>
+    </kbase>
+    <kbase name="custom" default="true">
+    	<ksession name="Rulecustom.drl"></ksession>
+    </kbase>
+    <kbase default="true" name="LongHoleTeam.drl">
+    	<ksession name="RuleLongHoleTeam.drl"></ksession>
+    </kbase>
+    <kbase default="true" name="MC">
+    	<ksession name="RuleMC.drl"></ksession>
+    </kbase>
+    <kbase default="true" name="Planner">
+    	<ksession name="RulePlanner.drl"></ksession>
+    </kbase>
+</kmodule>

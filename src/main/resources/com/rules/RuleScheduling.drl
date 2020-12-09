@@ -1,0 +1,1295 @@
+import com.New.Scheduling.Scheduling.*;
+
+rule "WorkeR 01"
+agenda-group "A01"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 1, nightShift <= 1 , maxDay <= 1 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 02"
+agenda-group "A02"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 2, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 03"
+agenda-group "A03"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 3, nightShift <= 3 ,
+     maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 04"
+agenda-group "A04"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 4, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 012"
+agenda-group "A012"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 1, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 013"
+agenda-group "A013"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 1, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 014"
+agenda-group "A014"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 1, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 023"
+agenda-group "A023"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 2, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 024"
+agenda-group "A024"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 2, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 034"
+agenda-group "A034"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 3, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 021"
+agenda-group "A021"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 2, nightShift <= 1 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 031"
+agenda-group "A031"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 3, nightShift <= 1 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 032"
+agenda-group "A032"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 3, nightShift <= 2 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 041"
+agenda-group "A041"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 4, nightShift <= 1 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 042"
+agenda-group "A042"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 4, nightShift <= 2 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 043"
+agenda-group "A043"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 4, nightShift <= 3 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 11"
+agenda-group "A11"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 1, nightShift <= 1 , maxDay <= 1 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 12"
+agenda-group "A12"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 2, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 13"
+agenda-group "A13"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 3, nightShift <= 3 ,
+     maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 14"
+agenda-group "A14"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 4, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 112"
+agenda-group "A112"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 1, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 113"
+agenda-group "A113"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 1, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 114"
+agenda-group "A114"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 1, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 123"
+agenda-group "A123"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 2, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 124"
+agenda-group "A124"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 2, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 134"
+agenda-group "A134"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 3, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 121"
+agenda-group "A121"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 2, nightShift <= 1 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 131"
+agenda-group "A131"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 3, nightShift <= 1 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 132"
+agenda-group "A132"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 3, nightShift <= 2 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 141"
+agenda-group "A141"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 4, nightShift <= 1 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 142"
+agenda-group "A142"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 4, nightShift <= 2 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 143"
+agenda-group "A143"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 3, dayShift <= 4, nightShift <= 3 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 21"
+agenda-group "A21"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 1, nightShift <= 1 , maxDay <= 1 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 22"
+agenda-group "A22"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 2, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 23"
+agenda-group "A23"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 3, nightShift <= 3 ,
+     maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 24"
+agenda-group "A24"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 4, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 212"
+agenda-group "A212"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 1, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 213"
+agenda-group "A213"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 1, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 214"
+agenda-group "A214"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 1, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 223"
+agenda-group "A223"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 2, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 224"
+agenda-group "A224"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 2, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 234"
+agenda-group "A234"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 3, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 221"
+agenda-group "A221"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 2, nightShift <= 1 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 231"
+agenda-group "A231"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 3, nightShift <= 1 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 232"
+agenda-group "A232"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 3, nightShift <= 2 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 241"
+agenda-group "A241"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 4, nightShift <= 1 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 242"
+agenda-group "A242"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 4, nightShift <= 2 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 243"
+agenda-group "A243"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 6, dayShift <= 4, nightShift <= 3 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 31"
+agenda-group "A31"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 1, nightShift <= 1 , maxDay <= 1 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 32"
+agenda-group "A32"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 2, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 33"
+agenda-group "A33"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 3, nightShift <= 3 ,
+     maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 34"
+agenda-group "A34"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 4, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 312"
+agenda-group "A312"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 1, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 313"
+agenda-group "A313"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 1, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 314"
+agenda-group "A314"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 1, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 323"
+agenda-group "A323"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 2, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 324"
+agenda-group "A324"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 2, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 334"
+agenda-group "A334"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 3, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 321"
+agenda-group "A321"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 2, nightShift <= 1 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 331"
+agenda-group "A331"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 3, nightShift <= 1 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 332"
+agenda-group "A332"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 3, nightShift <= 2 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 341"
+agenda-group "A341"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 4, nightShift <= 1 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 342"
+agenda-group "A342"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 4, nightShift <= 2 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 343"
+agenda-group "A343"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 9, dayShift <= 4, nightShift <= 3 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 41"
+agenda-group "A41"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 1, nightShift <= 1 , maxDay <= 1 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 42"
+agenda-group "A42"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 2, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 43"
+agenda-group "A43"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 3, nightShift <= 3 ,
+     maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 44"
+agenda-group "A44"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 4, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 412"
+agenda-group "A412"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 1, nightShift <= 2 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 413"
+agenda-group "A413"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 1, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 414"
+agenda-group "A414"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 1, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 423"
+agenda-group "A423"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 2, nightShift <= 3 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 424"
+agenda-group "A424"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 2, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 434"
+agenda-group "A434"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 3, nightShift <= 4 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 421"
+agenda-group "A421"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 2, nightShift <= 1 , maxDay <= 2 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 431"
+agenda-group "A431"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 3, nightShift <= 1 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 432"
+agenda-group "A432"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 3, nightShift <= 2 , maxDay <= 3 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 441"
+agenda-group "A441"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 4, nightShift <= 1 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 442"
+agenda-group "A442"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 4, nightShift <= 2 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "WorkeR 443"
+agenda-group "A443"
+when
+    shift : Shift(workeR == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 12, dayShift <= 4, nightShift <= 3 , maxDay <= 4 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(workeR == null, workDate.day < $date.day)
+    not Shift(workeR == null, workDate.day == $date.day, no < $no )
+then
+    shift.setWorkeR( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+rule "移除班次"
+agenda-group "RW"
+when
+    shift : Shift()
+    eval( shift.isDone() )
+then
+    retract( shift );
+end

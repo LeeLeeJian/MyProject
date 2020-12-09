@@ -1,0 +1,28 @@
+import com.New.Scheduling.Scheduling.*;
+
+
+rule "Custom"
+agenda-group "C1"
+when
+    shift : Shift(custoM == null, $date : workDate, $no : no)
+    worker : Worker(type == 1, easyDay >= 0, dayShift <= 66 , nightShift <= 66 , maxDay <= 66 ,$total : shiftTotal )
+    eval( !shift.getWorkDate().containsWorker1(worker) )
+    not Worker(type == 1, shiftTotal < $total )
+    not Shift(custoM == null, workDate.day < $date.day)
+    not Shift(custoM == null, workDate.day == $date.day, no < $no )
+then
+    shift.setCustoM( worker );
+    worker.addShift( shift );
+    update( shift );
+    update( worker );
+end
+
+
+rule "移除班次1"
+agenda-group "RC"
+when
+    shift : Shift()
+    eval( shift.isDone1() )
+then
+    retract( shift );
+end
